@@ -17,7 +17,7 @@ def main_menu():
                 username, first_name = result
                 user_menu(username, first_name)
         elif choice == '3':
-            print("Thanks. If you need our banking services again, feel free to return. Have a great day!")
+            print("Thanks for using our banking services. If you need them again, feel free to return. Have a great day!")
             break
         else:
             print("Invalid choice. Please try again.")
@@ -42,7 +42,7 @@ def user_menu(username, first_name):
         elif choice == '4':
             handle_fund_transfer(bobj)
         elif choice == '5':
-            print("Thanks. If you need our banking services again, feel free to return. Have a great day!")
+            print("Thanks for using our banking services. If you need them again, feel free to return. Have a great day!")
             break
         else:
             print("Invalid choice. Please try again.")
