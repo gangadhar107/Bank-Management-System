@@ -4,8 +4,8 @@ import os
 # Fetching database credentials from environment variables
 host = os.getenv("DB_HOST", "localhost")
 user = os.getenv("DB_USER", "root")
-passwd = os.getenv("DB_PASS", "Hari@5412")
-database = os.getenv("DB_NAME", "bms")
+passwd = os.getenv("DB_PASS", "password")# Substitute password with your database password. 
+database = os.getenv("DB_NAME", "database")# Substitute database with your database name.
 
 mydb = sql.connect(
     host=host,
