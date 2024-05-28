@@ -4,7 +4,6 @@
 This project is a simple bank management system implemented in Python using MySQL as the database. The system allows users to sign up, sign in, perform banking operations such as balance enquiry, deposit, withdraw, and fund transfer. Each user has a unique account number and can perform transactions securely.
 
 # FEATURES
-- Secure user authentication and password hashing.
 - Database operations using MySQL for data storage and retrieval.
 - Transaction management for banking operations.
 - Input validation to prevent invalid inputs and SQL injection attacks.
