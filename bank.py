@@ -1,5 +1,6 @@
-from database import *
+from database import db_query
 import datetime
+import time
 
 class Bank:
     def __init__(self, username, account_number):
@@ -14,10 +15,15 @@ class Bank:
                  f"amount INTEGER )")
 
     def balance_enquiry(self):
+        start_time = time.time()
         temp = db_query("SELECT balance FROM customers WHERE username = %s;", (self.__username,))
         print(f"{self.__username} Balance is {temp[0][0]}")
 
+        end_time = time.time()
+        print(f"balance enquiry time: {end_time - start_time} seconds")
+
     def deposit(self, amount):
+        start_time = time.time()
         temp = db_query("SELECT balance FROM customers WHERE username = %s;", (self.__username,))
         test = amount + temp[0][0]
         db_query("UPDATE customers SET balance = %s WHERE username = %s;", (test, self.__username))
@@ -29,8 +35,11 @@ class Bank:
                  f"'{amount}'"
                  f")")
         print(f"{self.__username} Amount is Sucessfully Depositted into Your Account {self.__account_number}")
+        end_time = time.time()
+        print(f"Deposit transaction time: {end_time - start_time} seconds")
 
     def withdraw(self, amount):
+        start_time = time.time()
         temp = db_query("SELECT balance FROM customers WHERE username = %s;", (self.__username,))
         if amount > temp[0][0]:
             print("Insufficient Balance Please Deposit Money")
@@ -46,7 +55,11 @@ class Bank:
                      f")")
             print(f"{self.__username} Amount is Sucessfully Withdraw from Your Account {self.__account_number}")
 
+        end_time = time.time()
+        print(f"Withdraw transaction time: {end_time - start_time} seconds")
+
     def fund_transfer(self, receive, amount):
+        start_time = time.time()
         temp = db_query("SELECT balance FROM customers WHERE username = %s;", (self.__username,))
         if amount > temp[0][0]:
             print("Insufficient Balance Please Deposit Money")
@@ -71,3 +84,5 @@ class Bank:
                      f"'{amount}'"
                      f")")
             print(f"{self.__username} Amount is Sucessfully Transaction from Your Account {self.__account_number}")
+            end_time = time.time()
+            print(f"Fund Transfer transaction time: {end_time - start_time} seconds")
